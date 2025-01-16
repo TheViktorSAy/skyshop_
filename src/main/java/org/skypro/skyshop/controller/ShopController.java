@@ -22,7 +22,6 @@ public class ShopController {
     }
 
 
-
     @GetMapping("/search")
     public ResponseEntity<Collection<SearchResult>> search(@RequestParam String pattern) {
         Collection<SearchResult> results = searchService.search(pattern);

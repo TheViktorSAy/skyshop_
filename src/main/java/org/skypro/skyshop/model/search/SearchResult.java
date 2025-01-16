@@ -7,6 +7,7 @@ public class SearchResult {
     private final String name; // Имя
     private final String contentType; // Тип контента
 
+
     public SearchResult(UUID id, String name, String contentType) {
         this.id = id;
         this.name = name;

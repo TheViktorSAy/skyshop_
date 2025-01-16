@@ -18,6 +18,7 @@ public abstract class Product implements Searchable {
         this.id = id; // Инициализация идентификатора
 
     }
+
     @Override
     public UUID getId() {
         return id; // Возвращаем идентификатор
@@ -35,6 +36,7 @@ public abstract class Product implements Searchable {
     public String getSearchTerm() {
         return getName(); // Возвращаем имя товара как термин поиска
     }
+
     @JsonIgnore
     public String getContentType() {
         return "PRODUCT"; // Тип контента

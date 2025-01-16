@@ -32,6 +32,7 @@ public class Article implements Searchable {
         return "ARTICLE"; // Тип контента
     }
 
+
     @Override
     public String getName() {
         return title; // Имя Searchable объекта

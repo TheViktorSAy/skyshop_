@@ -5,6 +5,7 @@ import java.util.UUID;
 public class FixPriceProduct extends Product {
     private static final int FIXED_PRICE = 200; // Пример фиксированной цены
 
+
     public FixPriceProduct(String name, UUID id) {
         super(name, id); // Передаем id в родительский класс
     }
