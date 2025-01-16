@@ -27,6 +27,7 @@ public class Article implements Searchable {
         return title + text; // Возвращаем название и текст статьи как термин поиска
     }
 
+
     @JsonIgnore
     public String getContentType() {
         return "ARTICLE"; // Тип контента

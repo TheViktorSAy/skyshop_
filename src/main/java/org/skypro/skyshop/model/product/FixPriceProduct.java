@@ -10,6 +10,7 @@ public class FixPriceProduct extends Product {
         super(name, id); // Передаем id в родительский класс
     }
 
+
     @Override
     public int getPrice() {
         return FIXED_PRICE; // Возвращаем фиксированную цену

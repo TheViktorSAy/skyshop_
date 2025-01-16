@@ -19,7 +19,6 @@ public class StorageService {
         initializeStorage();
     }
 
-
     private void initializeStorage() {
         // Добавьте тестовые данные с использованием UUID.randomUUID()
         products.put(UUID.randomUUID(), new SimpleProduct("Продукт 1", 100, UUID.randomUUID()));

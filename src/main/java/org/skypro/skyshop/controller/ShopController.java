@@ -16,6 +16,7 @@ import java.util.Collection;
 public class ShopController {
     private SearchService searchService;
 
+
     @Autowired
     public void ShopController(SearchService searchService) {
         this.searchService = searchService;

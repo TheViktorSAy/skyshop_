@@ -18,6 +18,7 @@ public class DiscountedProduct extends Product {
         this.discount = discount;
     }
 
+
     @Override
     public int getPrice() {
         return basePrice - (basePrice * discount / 100); // Рассчитываем цену с учетом скидки
