@@ -11,28 +11,34 @@ import org.skypro.skyshop.model.product.Product;
 import org.skypro.skyshop.model.search.SearchResult;
 
 import java.util.Collection;
+import java.util.UUID;
+
+import org.skypro.skyshop.service.BasketService;
+import org.skypro.skyshop.model.basket.UserBasket;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/shop")
 public class ShopController {
-    private SearchService searchService;
+    private final BasketService basketService;
 
-
-    @Autowired
-    public void ShopController(SearchService searchService) {
-        this.searchService = searchService;
+    public ShopController(BasketService basketService) {
+        this.basketService = basketService;
     }
 
+    @GetMapping("/basket/{id}")
+    public String addProduct(@PathVariable("id") UUID id) {
+        basketService.addProduct(id);
+        return "Продукт успешно добавлен";
+    }
 
-    @GetMapping("/search")
-    public ResponseEntity<Collection<SearchResult>> search(@RequestParam String pattern) {
-        Collection<SearchResult> results = searchService.search(pattern);
-
-        if (results.isEmpty()) {
-            return ResponseEntity.noContent().build(); // Возвращает статус 204 No Content, если нет результатов
-        }
-
-        return ResponseEntity.ok(results); // Возвращает статус 200 OK с результатами
+    @GetMapping("/basket")
+    public UserBasket getUserBasket() {
+        return basketService.getUserBasket();
     }
 }
+
+
+
 
 
