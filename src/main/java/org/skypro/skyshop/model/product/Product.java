@@ -18,6 +18,12 @@ public abstract class Product implements Searchable {
         this.id = id; // Инициализация идентификатора
 
     }
+    protected void validatePrice(int price) {
+        if (price <= 0) {
+            throw new IllegalArgumentException("Цена продукта должна быть больше 0.");
+        }
+    }
+
 
     @Override
     public UUID getId() {

@@ -1,5 +1,7 @@
 package org.skypro.skyshop.service;
 
+import org.skypro.skyshop.model.article.Article;
+import org.skypro.skyshop.model.product.Product;
 import org.skypro.skyshop.model.search.SearchResult;
 import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,14 @@ public class SearchService {
                 .filter(searchable -> searchable.getSearchTerm().toLowerCase().contains(pattern.toLowerCase()))
                 .map(SearchResult::fromSearchable) // Преобразуем в SearchResult
                 .collect(Collectors.toList());
+    }
+
+    public Collection<Product> getAllProducts() {
+        return storageService.getAllProducts();
+    }
+
+    public Collection<Article> getAllArticles() {
+        return storageService.getAllArticles();
     }
 }
 

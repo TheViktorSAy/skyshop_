@@ -9,9 +9,7 @@ public class SimpleProduct extends Product {
     public SimpleProduct(String name, int price, UUID id) {
         super(name, id); // Передаем id в родительский класс
 
-        if (price <= 0) {
-            throw new IllegalArgumentException("Цена продукта должна быть больше 0.");
-        }
+        validatePrice(price);
         this.price = price;
     }
 

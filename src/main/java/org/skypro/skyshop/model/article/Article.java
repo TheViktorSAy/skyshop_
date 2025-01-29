@@ -14,12 +14,12 @@ public class Article implements Searchable {
     public Article(String title, String text, UUID id) {
         this.title = title;
         this.text = text;
-        this.id = id; // Инициализация идентификатора
+        this.id = (id != null) ? id : UUID.randomUUID(); // Инициализация идентификатора
     }
 
     @Override
     public UUID getId() {
-        return null;
+        return id;
     }
 
     @JsonIgnore
@@ -41,10 +41,12 @@ public class Article implements Searchable {
 
     @Override
     public boolean equals(Object o) {
-        if (this != o) return true;
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Article article = (Article) o;
-        return Objects.equals(title, article.title) && Objects.equals(text, article.text);
+        return Objects.equals(title, article.title) &&
+                Objects.equals(text, article.text) &&
+                Objects.equals(id, article.id);
     }
 
     @Override
