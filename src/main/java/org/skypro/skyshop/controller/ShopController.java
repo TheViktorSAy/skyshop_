@@ -1,6 +1,7 @@
 package org.skypro.skyshop.controller;
 
 import org.skypro.skyshop.service.SearchService;
+import org.skypro.skyshop.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +37,22 @@ public class ShopController {
     public UserBasket getUserBasket() {
         return basketService.getUserBasket();
     }
-}
+    @RestController
+    @RequestMapping("/products")
+    public class ProductController {
+
+        private final StorageService storageService;
+
+        public ProductController(StorageService storageService) {
+            this.storageService = storageService;
+        }
+
+        @GetMapping
+        public Collection<Product> getAllProducts() {
+            return storageService.getAllProducts();
+        }
+
+}}
 
 
 

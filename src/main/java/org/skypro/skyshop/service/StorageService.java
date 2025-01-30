@@ -9,6 +9,7 @@ import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import org.skypro.skyshop.exception.NoSuchProductException;
 
 @Service
 public class StorageService {
@@ -46,6 +47,9 @@ public class StorageService {
     }
     public Optional<Product> getProductById(UUID id) {
         return Optional.ofNullable(products.get(id));
+    }
+    public Product getProductByIdOrThrow(UUID id) {
+        return getProductById(id).orElseThrow(() -> new NoSuchProductException("Продукт с ID " + id + " не найден."));
     }
 
 }
