@@ -23,10 +23,7 @@ public class BasketService {
     }
 
     public void addProduct(UUID id) {
-        Optional<Product> productOptional = storageService.getProductById(id);
-        if (productOptional.isEmpty()) {
-            throw new IllegalArgumentException("Продукт не найден");
-        }
+        Product product = storageService.getProductByIdOrThrow(id);
         productBasket.addProduct(id);
     }
 
